@@ -1,14 +1,13 @@
-export const validateSchema_ReqBody = (validateSchema) => {
+export const validateReqBody = (validationSchema) => {
   return async (req, res, next) => {
-    // validate new user
     try {
-      const validatedData = await validateSchema.validate(req.body);
-      req.body = validatedData;
+      req.body = await validationSchema.validate(req.body);
+
       //call next
       next();
       // throw error response
     } catch (error) {
-      return res.status(409).send({ message: error.message });
+      return res.status(400).send({ message: error.message });
     }
   };
 };

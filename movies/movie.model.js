@@ -8,10 +8,12 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+    maxlength: 55,
   },
   language: {
     type: String,
     required: true,
+    maxlength: 55,
   },
   genres: {
     type: [String],
@@ -29,4 +31,4 @@ const movieSchema = new mongoose.Schema({
 });
 
 //create table
-export const Movies = mongoose.model("Movies", movieSchema);
+export const Movie = mongoose.model("Movie", movieSchema);

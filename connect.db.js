@@ -1,19 +1,20 @@
 import mongoose from "mongoose";
 
-const dbName = "Netflix"
-const userName = "rddesign64"
-const userPassword = "Deepesh123"
+const dbName = "badminton-movie";
+const dbUser = "arun";
+const dbPassword = "arun2nly2";
 
-const connectDatabase = async () => {
+const connectDB = async () => {
   try {
     await mongoose.connect(
-      `mongodb+srv://${userName}:${userPassword}@cluster0.t0nfroa.mongodb.net/${dbName}?retryWrites=true&w=majority`
+      `mongodb+srv://${dbUser}:${dbPassword}@school.b6qkdnb.mongodb.net/${dbName}?retryWrites=true&w=majority`
     );
-    console.log("Database connection established... ");
+
+    console.log("DB connection established...");
   } catch (error) {
-    console.log("DB connection failed");
+    console.log("DB connection failed...");
     console.log(error.message);
   }
 };
 
-export default connectDatabase;
+export default connectDB;
